@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<html lang="en">
+<meta charset="uht-8">
+<title>CakeTools - Dice</title>
+</head>
+<body>
+<center>
+<h3>Click the number to roll</h3>
+<h1 id="nmbr" style="font-size:2000%;" onclick="roll()">2</h1>
+<script>
+  document.getElementById("nmbr").innerHTML = Math.floor((Math.random() * 6) + 1);
+
+</script>
+<h2><a href="index.html">< Back to front page</a></h2>
+</center>
+</body>
+</html>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i');
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #fcdda9;
+}
+
+.center {
+	text-align: left;
+}
+
+</style>
+<script>
+//
+// Please, if you copy or use any of this code from my website, I kindly ask you to link to my website or YouTube channel in your project. Thank you.
+//
+  function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function roll() {
+  var x = Math.floor((Math.random() * 6) + 1);
+  document.getElementById("nmbr").innerHTML = x;
+}
+</script>

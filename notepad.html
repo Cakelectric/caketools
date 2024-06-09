@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+<html lang="en">
+<meta charset="utf-8">
+<title>CakeTools - Notepad with character counter</title>
+</head>
+<body>
+<center>
+<noscript>Sorry. This Web Tool requires JavaScript, and it isn't supported by your browser. Try turning it on in your browser settings if you can, disable your JavaScript blocker, use a different browser or update to a newer browser version.</noscript>
+<textarea id="notepad" style="width:100%;height:700px;background-color:#59c1f2;font-family: 'Montserrat2', sans-serif;" placeholder="Type here" oninput="change()"></textarea>
+<div style="display:flex;text-align:center;"><p>Characters: <b id="char"></b></p></div>
+<div style="display:flex;text-align:center;"><p>Characters (without spaces): <b id="charwo"></b></p></div>
+<div style="display:flex;text-align:center;"><p>New lines: <b id="newlines"></b></p></div>
+<br>
+<div style="display:flex;text-align:center;"><p style="margin: 0;">Save as: </p><input type="text" id="filename" style="height:15px;margin: 0 5px;"><p style="margin: 0;">.txt</p><button onclick="save()" style="height: 25px; margin: 0 5px;">Save & download</button></div>
+<p>
+<h2><a id="linkki" href="index.html">< Back to front page</a></h2>
+</center>
+</body>
+</html>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat2');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i');
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #fcdda9;
+}
+
+.center {
+	text-align: left;
+}
+</style>
+<script>
+//
+// Please, if you copy or use any of this code from my website, I kindly ask you to link to my website or YouTube channel in your project. Thank you.
+//
+function save() {
+	var filename = document.getElementById("filename").value + ".txt";
+            var areaText = document.getElementById("notepad").value;
+            
+            var tiedosto = new Blob([document.getElementById("notepad").value], { type: "text/plain" });
+
+            var linkki = document.createElement("a");
+			var urli = URL.createObjectURL(tiedosto);
+			linkki.href = urli;
+
+            linkki.download = filename;
+
+            document.body.appendChild(linkki);
+            linkki.click();
+
+            document.body.removeChild(linkki);
+        }
+		
+function change()	{
+	var areaText = document.getElementById("notepad").value;
+	var areaTextnoo = areaText.replace(/[\t\n\r]/g, '');;
+	var lengthhg = areaTextnoo.length;
+	document.getElementById("char").innerHTML = lengthhg.toString();
+	
+	var areaTextNo = areaText.replace(/\s+/g, '');
+	var lengthh = areaTextNo.length;
+	document.getElementById("charwo").innerHTML = lengthh.toString();
+	
+	var areaTextOnlyNewlines = areaText.replace(/[^\n\r]/g, '');
+	var lllength = areaTextOnlyNewlines.length;
+	document.getElementById("newlines").innerHTML = lllength.toString();
+}
+// Please, if you copy or use any of this code from my website, I kindly ask you to link to my website or YouTube channel in your project. Thank you.
+</script>
