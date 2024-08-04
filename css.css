@@ -23,7 +23,7 @@ body {
 	padding: 5px 25px;
 }
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i');
-@media screen and (max-width: 800px)	{
+@media screen and (max-width: 1200px)	{
 #list1	{
 	background-color:#41a1d8;
 	border:1px solid;
